@@ -21,7 +21,13 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: master
-          
+      - name: Install packages
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt update
+          sudo apt install -y -o Acquire::Retries=50 \
+                           mtools syslinux isolinux \
+                           libc6-dev-i386 libc6-dbg:i386 valgrind    
       - name: install mkisofs
         run: |
           sudo apt install mkisofs
