@@ -31,14 +31,7 @@ jobs:
       - name: install mkisofs
         run: |
           sudo apt install mkisofs
-          
-      - name: make for uefi with EMBED
-        run: |
-          rm -rf ./uefi-EMBED/
-          mkdir -p ./uefi-EMBED/
-          sh loadefi.sh
-          mv ./src/bin-x86_64-efi/*.efi ./uefi-EMBED/
-     
+                
       - name: make for uefi no EMBED
         run: |
           rm -rf ./uefi/
